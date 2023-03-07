@@ -16,7 +16,6 @@ export const useProductsStore = create((set) => ({
         body
       );
       set((state) => ({ products: [...state.products, data] }));
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
