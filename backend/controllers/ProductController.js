@@ -34,16 +34,6 @@ const getProduct = async (req, res) => {
 const createProduct = async (req, res) => {
   const product = req.body;
 
-  // handle image uplaod from image input
-  if (req.image) {
-    try {
-      const result = await cloudinary.uploader.upload(req.image.path);
-      product.image = result.secure_url;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
   const newProduct = new Product(product);
 
   try {
