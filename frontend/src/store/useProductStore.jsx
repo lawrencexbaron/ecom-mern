@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export const useProductsStore = create((set) => ({
   products: [],
@@ -28,6 +29,23 @@ export const useProductsStore = create((set) => ({
       set((state) => ({
         products: state.products.filter((product) => product._id !== id),
       }));
+
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: "Successfully deleted product",
+      });
     } catch (error) {
       console.log(error);
     }

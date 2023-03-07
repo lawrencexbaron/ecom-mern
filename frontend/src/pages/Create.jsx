@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-
 import { useProductsStore } from "../store/useProductStore";
 import Base64 from "../components/common/Base64";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 const Create = () => {
@@ -26,13 +26,31 @@ const Create = () => {
     e.preventDefault();
     // handle addproduct then alert success
     addProduct({ name, price, image, description });
-    alert("Product added successfully");
+    Alert({ title: "Product created successfully" });
     navigate("/");
     // reset form
     setName("");
     setPrice("");
     setImage("");
     setDescription("");
+  };
+  const Alert = ({ title }) => {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "success",
+      title: title,
+    });
   };
   return (
     <>

@@ -13,6 +13,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
+    "sweetalert2": "^11.7.3",
     "zustand": "^4.3.5"
   },
   "devDependencies": {
