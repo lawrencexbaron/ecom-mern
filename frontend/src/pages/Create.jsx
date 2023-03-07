@@ -23,11 +23,19 @@ const Create = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProduct({ name, price, description, image });
+    // handle addproduct then alert success
+    addProduct({ name, price, image, description });
+    alert("Product added successfully");
+
+    // reset form
+    setName("");
+    setPrice("");
+    setImage("");
+    setDescription("");
   };
   return (
     <>
-      <main className="px-8 py-6 flex justify-center content-center">
+      <main className="px-8 py-6 flex justify-center content-center mx-auto">
         <div className="bg-white shadow-md rounded-md p-4 mx-auto w-full sm:w-1/2">
           <h2 className="text-2xl font-bold">Create</h2>
           <form onSubmit={handleSubmit} method="POST">
