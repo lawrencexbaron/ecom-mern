@@ -2,10 +2,11 @@ import { React, useState } from "react";
 
 import { useProductsStore } from "../store/useProductStore";
 import Base64 from "../components/common/Base64";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
+  const navigate = useNavigate();
   const addProduct = useProductsStore((state) => state.addProduct);
-
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
@@ -26,7 +27,7 @@ const Create = () => {
     // handle addproduct then alert success
     addProduct({ name, price, image, description });
     alert("Product added successfully");
-
+    navigate("/");
     // reset form
     setName("");
     setPrice("");
