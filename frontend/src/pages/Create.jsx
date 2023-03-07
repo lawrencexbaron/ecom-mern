@@ -99,7 +99,7 @@ const Create = () => {
                 id="image"
                 type="file"
                 // value={image}
-                onChange={handleImageUpload}
+                onChange={(e) => handleImageUpload(e)}
                 placeholder="Image"
               />
             </div>
