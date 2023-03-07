@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="px-8 py-6">
+      <main className="px-8 py-6 h-full">
         <h1 className="text-4xl font-bold mb-4">Products</h1>
         <div className="grid sm:grid-cols-3 gap-4">
           {products.map((product) => (
