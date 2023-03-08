@@ -9,11 +9,20 @@ export default function Card({ props }) {
   return (
     <>
       {props.products.map((product) => (
-        <div className="bg-white shadow-md rounded-md p-4" key={product._id}>
-          <Base64 props={{ base64: product.image, class: "w-1/2 mx-auto" }} />
-          <h2 className="text-2xl font-bold">{product.name}</h2>
+        <div
+          className="bg-white cursor-pointer shadow-md rounded-md hover:border hover:border-gray-300 px-4 py-6 hover:shadow-xl transition duration-200 ease-in-out"
+          key={product._id}
+        >
+          <Base64
+            props={{
+              base64: product.image,
+              class:
+                "w-full mx-auto max-w-none hover:scale-90 transition duration-200 ease-in-out",
+            }}
+          />
+          <h2 className="text-2xl font-bold mt-2">{product.name}</h2>
           <p className="text-gray-500">${product.price}</p>
-          <div className="space-x-2">
+          {/* <div className="inline-block w-auto space-x-1">
             <button
               className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
               onClick={() => props.addToCart(product)}
@@ -41,7 +50,7 @@ export default function Card({ props }) {
             >
               Delete
             </button>
-          </div>
+          </div> */}
         </div>
       ))}
     </>
