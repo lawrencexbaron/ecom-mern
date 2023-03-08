@@ -21,7 +21,7 @@ export default function Card({ props }) {
             }}
           />
           <h2 className="text-2xl font-bold mt-2">{product.name}</h2>
-          <p className="text-gray-500">${product.price}</p>
+          <p className="text-gray-500 font-semibold">${product.price}</p>
           {/* <div className="inline-block w-auto space-x-1">
             <button
               className="bg-blue-500 text-white rounded-md px-4 py-2 mt-4"
