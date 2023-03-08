@@ -7,21 +7,43 @@ const Nav = () => {
   const cart = cartStore((state) => state.cart);
   // handle cart toggle
   const [cartOpen, setCartOpen] = useState(false);
+
+  // active menu
+  const [activeMenu, setActiveMenu] = useState("home");
+
+  const handleMenu = (menu) => {
+    setActiveMenu(menu);
+  };
+
   const handleCartToggle = () => {
     setCartOpen(!cartOpen);
   };
   return (
     <>
-      <nav className="bg-white border-b border-gray-50 shadow-md px-8 py-6 flex justify-between items-center">
+      <nav className="bg-white border-b border-gray-50 shadow-md px-8 flex justify-between items-center">
         <div className="flex items-center">
           <img src={reactLogo} alt="React Logo" className="h-8 w-8 mr-2" />
           <h1 className="text-2xl font-bold">React App</h1>
 
           <ul className="flex ml-8">
-            <li className="mr-4">
+            <li
+              onClick={() => handleMenu("home")}
+              className={
+                activeMenu === "home"
+                  ? "border-b-2 border-b-red-500 mr-4 transition ease-in duration-100 border-2 border-transparent py-6 hover:border-b-2 hover:border-b-red-500"
+                  : "mr-4 transition ease-in duration-100 border-2 border-transparent py-6 hover:border-b-2 hover:border-b-red-500"
+              }
+            >
               <Link to="/">Home</Link>
             </li>
-            <li className="mr-4">
+            <li
+              onClick={() => handleMenu("create")}
+              className={
+                activeMenu === "create"
+                  ? "border-b-2 border-b-red-500 mr-4 transition ease-in duration-100 border-2 border-transparent py-6 hover:border-b-2 hover:border-b-red-500"
+                  : "mr-4 transition ease-in duration-100 border-2 border-transparent py-6 hover:border-b-2 hover:border-b-red-500"
+              }
+            >
               <Link to="/create">Create</Link>
             </li>
           </ul>
